@@ -1,0 +1,117 @@
+<mxfile host="65bd71144e">
+    <diagram name="Company Structure" id="company-structure">
+        <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+
+                <!-- Bank Title -->
+                <mxCell id="bank-title" value="Банк&#xa;&quot;Стандарт&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="50" width="200" height="80" as="geometry"/>
+                </mxCell>
+
+                <!-- Top Management -->
+                <mxCell id="top-management" value="Топ-менеджмент" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="200" width="200" height="80" as="geometry"/>
+                </mxCell>
+
+                <!-- Branch Network Management -->
+                <mxCell id="branch-management" value="Управление&#xa;обслуживанием&#xa;в сети отделений" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#000000;fontSize=14;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="400" width="180" height="100" as="geometry"/>
+                </mxCell>
+
+                <!-- Call Center -->
+                <mxCell id="call-center" value="Кол-центр" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#000000;fontSize=14;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="400" width="180" height="100" as="geometry"/>
+                </mxCell>
+
+                <!-- IT Department -->
+                <mxCell id="it-department" value="IT-отдел" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#000000;fontSize=14;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="400" width="180" height="100" as="geometry"/>
+                </mxCell>
+
+                <!-- Deposit Products Management -->
+                <mxCell id="deposit-management" value="Управление&#xa;обслуживанием&#xa;депозитных&#xa;продуктов" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#000000;fontSize=14;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="740" y="400" width="180" height="100" as="geometry"/>
+                </mxCell>
+
+                <!-- Credit Products Management -->
+                <mxCell id="credit-management" value="Управление&#xa;обслуживанием&#xa;кредитных&#xa;продуктов" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#000000;fontSize=14;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="970" y="400" width="180" height="100" as="geometry"/>
+                </mxCell>
+
+                <!-- Digital Transformation Team -->
+                <mxCell id="digital-transformation" value="Команда цифровой&#xa;трансформации&#xa;розничного&#xa;бизнеса" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#000000;fontSize=14;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="400" width="180" height="100" as="geometry"/>
+                </mxCell>
+
+                <!-- Connection from Bank to Top Management -->
+                <mxCell id="line1" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=2;" parent="1" source="bank-title" target="top-management" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="700" y="130" as="sourcePoint"/>
+                        <mxPoint x="700" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- Horizontal line from Top Management -->
+                <mxCell id="horizontal-line" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=2;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="140" y="350" as="sourcePoint"/>
+                        <mxPoint x="1290" y="350" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- Vertical line from Top Management to horizontal line -->
+                <mxCell id="vertical-line" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=2;" parent="1" source="top-management" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="700" y="280" as="sourcePoint"/>
+                        <mxPoint x="700" y="350" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- Connections from horizontal line to departments -->
+                <mxCell id="line2" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=2;" parent="1" target="branch-management" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="140" y="350" as="sourcePoint"/>
+                        <mxPoint x="140" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="line3" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=2;" parent="1" target="call-center" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="370" y="350" as="sourcePoint"/>
+                        <mxPoint x="370" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="line4" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=2;" parent="1" target="it-department" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="600" y="350" as="sourcePoint"/>
+                        <mxPoint x="600" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="line5" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=2;" parent="1" target="deposit-management" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="830" y="350" as="sourcePoint"/>
+                        <mxPoint x="830" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="line6" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=2;" parent="1" target="credit-management" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1060" y="350" as="sourcePoint"/>
+                        <mxPoint x="1060" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="line7" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=2;" parent="1" target="digital-transformation" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1290" y="350" as="sourcePoint"/>
+                        <mxPoint x="1290" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
