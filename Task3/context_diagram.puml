@@ -1,0 +1,30 @@
+@startuml context_diagram
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+
+title Контекстная диаграмма C4 - MVP Открытие депозитов
+
+Person(client, "Клиент", "Клиент банка, желающий открыть депозит")
+
+Person(call_center_manager, "Менеджер кол-центра", "Обрабатывает заявки и консультирует клиентов")
+Person(front_office_manager, "Менеджер фронт-офиса", "Проводит идентификацию и оформляет депозиты в отделении")
+
+System(banking_system, "Банковская система 'Стандарт'", "Обеспечивает подачу и обработку заявок на депозиты через цифровые каналы")
+
+Person(deposit_manager, "Менеджер бэк-офиса депозитов", "Обрабатывает заявки на депозиты в АБС")
+Person(credit_manager, "Менеджер бэк-офиса кредитов", "Участвует в расчете персонализированных ставок по депозитам")
+
+System_Ext(sms_gateway, "СМС-шлюз телеком-оператора", "Отправка СМС-уведомлений клиентам")
+
+Rel(client, banking_system, "Подает заявку на депозит")
+Rel_D(client, front_office_manager, "Приходит для оформления депозита")
+Rel(call_center_manager, banking_system, "Обрабатывает заявки и консультации")
+Rel(client, call_center_manager, "Консультируется по депозитам", "Телефонный звонок")
+Rel(front_office_manager, banking_system, "Проводит идентификацию и оформляет депозиты")
+
+Rel_U(deposit_manager, banking_system, "Обрабатывает заявки на депозиты")
+Rel_U(credit_manager, banking_system, "Предоставляет данные для расчета персонализированных ставок")
+Rel_U(banking_system, sms_gateway, "Отправляет СМС-уведомления")
+Rel_L(sms_gateway, client, "СМС о статусе заявки", "SMS")
+
+@enduml
