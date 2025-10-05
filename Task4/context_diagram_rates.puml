@@ -1,0 +1,27 @@
+@startuml Context Diagram - Rate Management System
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title Диаграмма контекста - Система управления ставками депозитов
+
+Person(client, "Клиент банка", "Звонит в кол-центр для получения информации о ставках депозитов")
+Person(callcenter_operator, "Сотрудник кол-центра", "Консультирует клиентов по ставкам депозитов")
+Person(partner_operator, "Сотрудник партнёрского кол-центра", "Консультирует клиентов по ставкам депозитов")
+Person(backoffice_manager, "Сотрудник бэк-офиса", "Управляет ставками депозитов в системе")
+
+System(rate_management, "Система управления ставками", "Централизованная система для управления и распространения ставок по депозитам")
+System(callcenter_system, "Система кол-центра банка", "CRM-система для обработки звонков клиентов")
+System(abs_system, "АБС", "Автоматизированная банковская система")
+System_Ext(partner_callcenter, "Система партнёрского кол-центра", "Внешняя система партнёра для обработки звонков")
+
+Rel(client, callcenter_operator, "Звонит с вопросами о ставках")
+Rel(client, partner_operator, "Звонит с вопросами о ставках")
+Rel(callcenter_operator, callcenter_system, "Использует для консультации клиентов")
+Rel(partner_operator, partner_callcenter, "Использует для консультации клиентов")
+Rel_U(backoffice_manager, rate_management, "Управляет и обновляет ставки")
+
+Rel_U(rate_management, callcenter_system, "Передаёт актуальные ставки через API")
+Rel_U(rate_management, partner_callcenter, "Передаёт ставки через SFTP-файлы")
+Rel_D(rate_management, abs_system, "Синхронизирует ставки для согласованности")
+
+SHOW_LEGEND()
+@enduml
