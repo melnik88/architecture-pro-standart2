@@ -1,0 +1,115 @@
+<mxfile host="65bd71144e">
+    <diagram name="RoadMap MVP Deposits - CORRECTED" id="roadmap-mvp-corrected">
+        <mxGraphModel dx="1000" dy="591" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="RoadMap MVP - Интеграция кол-центров" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f4e79;strokeColor=#1f4e79;fontColor=#FFFFFF;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="30" width="1360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="q1-header" value="1 месяц" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#28a745;strokeColor=#28a745;fontColor=#FFFFFF;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="90" width="480" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2-header" value="1 месяц" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffc107;strokeColor=#ffc107;fontColor=#000000;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="90" width="480" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="q3-header" value="0.5 месяца" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dc3545;strokeColor=#dc3545;fontColor=#FFFFFF;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="1160" y="90" width="250" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="dev-phase-header" value="ФАЗА РАЗРАБОТКИ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#007bff;strokeColor=#007bff;fontColor=#FFFFFF;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="140" width="960" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="systems-header" value="СИСТЕМЫ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c757d;strokeColor=#6c757d;fontColor=#FFFFFF;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="180" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="rms-system" value="Rate Management Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#28a745;fontColor=#000000;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="280" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="rms-task1" value="RMS-1: API endpoints для кол-центров" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#28a745;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="280" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="rms-task1" target="cc-task1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="400" y="295"/>
+                            <mxPoint x="400" y="345"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rms-task2" value="RMS-2: SFTP-модуль" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#28a745;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="280" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="rms-task3" value="RMS-3: Мониторинг и метрики" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#28a745;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="650" y="280" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="rms-task4" value="RMS-4: Оптимизация и кэширование" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#28a745;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="280" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="abs-system" value="АБС" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d1ecf1;strokeColor=#0c5460;fontColor=#000000;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="230" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="abs-task1" value="ABS-1: Проверка интеграции" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1ecf1;strokeColor=#0c5460;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="230" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="abs-task2" value="ABS-2: Мониторинг нагрузки" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1ecf1;strokeColor=#0c5460;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="1080" y="230" width="330" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="cc-system" value="Кол-центр банка" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="330" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="cc-task1" value="CC-1: Интеграция с RMS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="330" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="cc-task2" value="CC-2: Обработка недоступности" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="330" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="cc-task3" value="CC-3: Обучение сотрудников" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="1160" y="330" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="pcc-system" value="Партнёрский кол-центр" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8f9fa;strokeColor=#6c757d;fontColor=#000000;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="380" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="pcc-task1" value="PCC-1: Интеграция с SFTP-модулем RMS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f9fa;strokeColor=#6c757d;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="660" y="380" width="320" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="qa-phase-header" value="ФАЗА ТЕСТИРОВАНИЯ И ПРИЁМКИ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6f42c1;strokeColor=#6f42c1;fontColor=#FFFFFF;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="1160" y="140" width="250" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="qa-activities-header" value="АКТИВНОСТИ QA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c757d;strokeColor=#6c757d;fontColor=#FFFFFF;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="430" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="test-task1" value="QA-1: Комплексное тестирование" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#dc3545;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="1160" y="460" width="250" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-header" value="ЛЕГЕНДА" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#495057;strokeColor=#495057;fontColor=#FFFFFF;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="530" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-rms" value="Rate Management Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#28a745;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="530" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-cc" value="Кол-центр" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="530" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-external" value="Внешние системы" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f9fa;strokeColor=#6c757d;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="580" y="530" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-abs" value="АБС" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1ecf1;strokeColor=#0c5460;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="530" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-qa" value="Тестирование" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#dc3545;fontColor=#000000;fontSize=10;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="710" y="530" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="rms-task2" target="pcc-task1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="620" y="245" as="sourcePoint"/>
+                        <mxPoint x="660" y="365" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="630" y="295"/>
+                            <mxPoint x="630" y="395"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

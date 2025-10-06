@@ -1,0 +1,61 @@
+@startuml container_diagram
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Диаграмма контейнеров банковской системы "Стандарт"
+
+AddContainerTag("new_service", $bgColor="LightGreen", $borderColor="DarkGreen", $fontColor="Black")
+
+Person(client, "Клиент", "Клиент банка, желающий открыть депозит")
+Person(back_office_manager, "Менеджер бэк-офиса кредитов", "Анализирует кредитный риск для персонализированных ставок")
+
+System_Boundary(banking_system, "Банковская система 'Стандарт'") {
+
+    Container(abs_system, "АБС", "Oracle + PL/SQL + Delphi", "Автоматизированная банковская система - основа банка")
+
+    Container(internet_bank, "Интернет-банк", "ASP.NET MVC 4.5", "Интерфейс для подачи заявок на депозиты существующими клиентами")
+
+    Container(deposit_service, "Deposit Service", "", "Единый шлюз для приема, валидации и передачи депозитных заявок в АБС", $tags="new_service")
+    Container(rate_service, "Rate Management Service", "", "Замена Excel-файлов централизованной системой", $tags="new_service")
+
+    Container(call_center_system, "Система кол-центра", "React.js + Java Spring Boot", "CRM функционал для обработки заявок на депозиты")
+    Container(website, "Веб-сайт банка", "React.js + PHP", "Маркетинговая информация и подача заявок на депозиты")
+    Container(credit_pipeline, "Кредитный конвейер", "Camunda BPM + Oracle", "Система обработки кредитных заявок")
+    Container(credit_scoring, "Система кредитного скоринга", "Python Flask + PostgreSQL", "ML модели оценки кредитного риска")
+}
+
+System_Ext(sms_gateway, "СМС-шлюз телеком-оператора", "Отправка СМС-уведомлений")
+System_Ext(credit_bureau, "Бюро кредитных историй", "Внешняя система предоставления кредитных данных")
+
+' Взаимодействие клиента с банковской системой
+Rel(client, website, "Подает заявку на депозит")
+Rel(client, internet_bank, "Подает заявку на депозит")
+Rel(client, call_center_system, "Звонит для консультации по депозитам")
+Rel(back_office_manager, rate_service, "Предоставляет данные для персонализированных ставок")
+
+' Взаимодействие между системами
+Rel(website, deposit_service, "Отправляет заявки на депозиты")
+Rel_U(rate_service, website, "Предоставляет ставки")
+Rel(internet_bank, deposit_service, "Отправляет заявки на депозиты")
+Rel_U(rate_service, internet_bank, "Предоставляет персонализированные ставки")
+
+' Прямая интеграция
+Rel_D(deposit_service, abs_system, "Передает депозитные заявки")
+Rel(call_center_system, deposit_service, "Передает заявки на депозиты от клиентов")
+' Управление ставками
+Rel_R(rate_service, abs_system, "Передает ставки по депозитам")
+
+' Уведомления
+Rel(abs_system, sms_gateway, "Отправляет СМС по депозитам")
+
+
+
+
+' Интеграция кредитных систем
+Rel(credit_pipeline, credit_scoring, "Запрашивает кредитный скоринг")
+Rel(credit_scoring, credit_bureau, "Получает кредитные истории")
+Rel(credit_scoring, abs_system, "Получает данные клиентов")
+Rel(abs_system, credit_pipeline, "Передает кредитные заявки")
+
+SHOW_LEGEND()
+
+@enduml

@@ -1,0 +1,48 @@
+@startuml Container Diagram - Extended Rate Management Service
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Диаграмма контейнеров - Расширенный Rate Management Service для кол-центров
+
+AddContainerTag("new_feature", $bgColor="LightGreen", $borderColor="DarkGreen", $fontColor="Black")
+
+Person(backoffice_manager, "Менеджер бэк-офиса", "Управляет ставками депозитов")
+Person(callcenter_operator, "Сотрудник кол-центра", "Консультирует клиентов")
+Person(partner_operator, "Сотрудник партнёра", "Консультирует клиентов")
+
+System_Boundary(rate_management_boundary, "Rate Management Service (расширенный)") {
+    Container(rate_api, "Rate Management API", "Java Spring Boot", "REST API для доступа к ставкам + новые endpoints для кол-центров", $tags="existing")
+    Container(sftp_module, "SFTP-модуль", "Java Spring Boot", "Формирование и отправка файлов партнёрам", $tags="new_feature")
+    ContainerDb(rate_db, "База данных ставок", "PostgreSQL", "Хранение актуальных ставок по депозитам")
+}
+
+System_Boundary(callcenter_boundary, "Система кол-центра банка") {
+    Container(callcenter_web, "Веб-интерфейс кол-центра", "React.js", "Интерфейс для сотрудников кол-центра")
+    Container(rates_module, "Модуль ставок", "React.js Component", "Компонент для отображения актуальных ставок", $tags="new_feature")
+}
+
+System_Ext(partner_callcenter, "Система партнёрского кол-центра", "Внешняя система партнёра для обработки звонков")
+
+System(abs_system, "АБС", "Автоматизированная банковская система")
+
+' Взаимодействие пользователей
+Rel(backoffice_manager, rate_api, "Управляет ставками через существующий интерфейс", "HTTPS/REST")
+Rel(callcenter_operator, callcenter_web, "Консультирует клиентов + просматривает ставки", "HTTPS")
+Rel(partner_operator, partner_callcenter, "Консультирует клиентов + просматривает ставки", "HTTPS")
+
+' Внутренние связи Rate Management Service
+Rel(rate_api, rate_db, "Читает/записывает ставки", "SQL")
+Rel(sftp_module, rate_api, "Получает ставки для формирования файлов", "HTTP/REST")
+Rel(sftp_module, rate_db, "Читает ставки", "SQL")
+
+' Интеграции с кол-центрами
+Rel(rates_module, rate_api, "Получает актуальные ставки", "HTTP/REST")
+Rel(callcenter_web, rates_module, "Отображает модуль ставок", "Component Integration")
+
+' Интеграция с партнёрским кол-центром
+Rel(sftp_module, partner_callcenter, "Передаёт файлы со ставками", "SFTP")
+
+' Интеграции с существующими системами
+Rel(rate_api, abs_system, "Синхронизирует ставки (существующая интеграция)", "Database Integration")
+
+SHOW_LEGEND()
+@enduml

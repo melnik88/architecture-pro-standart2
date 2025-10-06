@@ -1,0 +1,70 @@
+@startuml container_diagram_credit
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Диаграмма контейнеров C4 - Онлайн-подача заявок на кредит
+
+AddContainerTag("new_service", $bgColor="LightGreen", $borderColor="DarkGreen", $fontColor="Black")
+
+Person(client, "Клиент", "Новый или существующий клиент банка, подающий заявку на кредит онлайн")
+Person(credit_manager, "Менеджер бэк-офиса кредитов", "Обрабатывает кредитные заявки")
+Person(front_office_manager, "Менеджер фронт-офиса", "Проводит идентификацию и выдает кредиты в отделении")
+
+Container(internet_bank, "Интернет-банк", "ASP.NET MVC 4.5", "Отображение предодобренных предложений и подача заявок")
+
+Container(website, "Веб-сайт банка", "React.js + PHP", "Информация о кредитах и подача заявок новыми клиентами")
+
+Container_Boundary(credit_app_boundary, "Credit Application Service") {
+    Container(api_gateway, "API Gateway", "Java Spring Boot + PostgreSQL", "Прием, валидация и маршрутизация кредитных заявок", $tags="new_service")
+
+    Container(kafka, "Apache Kafka", "Message Broker", "Асинхронная передача заявок в систему скоринга", $tags="new_service")
+
+    Container(redis_cache, "Redis Cache", "In-Memory Cache", "Кэширование предодобренных кредитных предложений", $tags="new_service")
+}
+
+Container(credit_scoring, "Система кредитного скоринга", "Python Flask + PostgreSQL", "ML-модели оценки кредитного риска. Горизонтально масштабируется для обработки онлайн-заявок")
+
+Container(credit_pipeline, "Кредитный конвейер", "Camunda BPM + Oracle", "Обработка одобренных кредитных заявок менеджерами")
+
+Container(abs_system, "АБС", "Oracle + PL/SQL + Delphi", "Автоматизированная банковская система - учет кредитных операций")
+
+Container(call_center_system, "Система кол-центра", "React.js + Java Spring Boot + PostgreSQL", "Консультации клиентов по кредитным заявкам")
+
+System_Ext(credit_bureau, "Бюро кредитных историй", "REST API для получения кредитных историй")
+System_Ext(sms_gateway, "СМС-шлюз телеком-оператора", "Отправка СМС-уведомлений")
+
+Rel(client, internet_bank, "Просматривает предодобренное предложение и подает заявку")
+Rel(client, website, "Подает заявку на кредит")
+Rel(client, front_office_manager, "Приходит для идентификации, подписания договора и получения кредита")
+
+Rel(internet_bank, api_gateway, "Отправляет кредитные заявки")
+Rel(website, api_gateway, "Отправляет кредитные заявки")
+
+Rel_U(redis_cache, api_gateway, "Получает предодобренные предложения")
+Rel(api_gateway, internet_bank, "Отдает предодобренные предложения")
+
+
+Rel_R(api_gateway, kafka, "Публикует ВСЕ заявки")
+
+Rel(kafka, credit_scoring, "Доставляет заявки для обработки")
+
+Rel(credit_scoring, credit_pipeline, "Передает только одобренные заявки для дальнейшей обработки")
+
+Rel(credit_scoring, credit_bureau, "Запрашивает кредитные истории")
+Rel(abs_system, credit_scoring, "Предоставляет данные клиентов")
+Rel_U(credit_scoring, redis_cache, "Сохраняет предодобренные предложения")
+
+Rel(credit_manager, credit_pipeline, "Обрабатывает заявки")
+Rel(credit_pipeline, abs_system, "Записывает данные по одобренным кредитам")
+
+Rel(abs_system, sms_gateway, "Отправляет запросы на СМС-уведомления клиентам")
+
+Rel(abs_system, call_center_system, "Уведомляет о новых одобренных заявках и предоставляет информацию о клиентах")
+Rel(call_center_system, client, "Звонит для назначения встречи в отделении")
+
+Rel_U(sms_gateway, client, "СМС о статусе заявки")
+
+Rel(front_office_manager, abs_system, "Проводит идентификацию новых клиентов и оформляет выдачу кредита")
+
+SHOW_LEGEND()
+
+@enduml
